@@ -9,6 +9,6 @@ for f in glob.glob("*.json"):
 	with open(f, "r", encoding="utf8") as infile:
 			output.append(json.load(infile))
 
-#push the large file to CSV in same directory
+#push the large file to new JSON in same directory
 with open("covid-full-history.json", "w") as outfile:
 	json.dump(output, outfile)
