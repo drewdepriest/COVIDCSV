@@ -1,11 +1,14 @@
-import glob, os
+import glob
 import json
 
-result = []
-for file in glob.glob("*.json"):
+output = []
+# chug through directory of daily JSON files
+for f in glob.glob("*.json"):
     #print(file)
-	with open(file, "r", encoding="utf8") as infile:
-			result.append(json.load(infile))
+	# stitch them all together
+	with open(f, "r", encoding="utf8") as infile:
+			output.append(json.load(infile))
 
+#push the large file to CSV in same directory
 with open("covid-full-history.json", "w") as outfile:
-	json.dump(result, outfile)
+	json.dump(output, outfile)
